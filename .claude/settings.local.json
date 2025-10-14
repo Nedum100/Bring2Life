@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm run compile)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
