@@ -207,30 +207,30 @@ Please update the .env.local file and verify the configuration is correct.
 ### What We'll Build
 
 1. **Database Schema** (per SRS):
-   - `users` table
-   - `bounties` (commissions) table
-   - `participations` (bids) table
-   - `milestones` table
-   - `game_attempts` → `milestone_submissions` table
-   - `payment_transactions` table
-   - `nft_certificates` table
-   - `reputation_logs` table
+   - `users` table - User accounts and profiles
+   - `commissions` table - Art commission requests from clients
+   - `bids` table - Artist proposals on commissions
+   - `milestones` table - Commission milestone definitions
+   - `milestone_submissions` table - Artist work submissions for milestones
+   - `payment_transactions` table - Payment history and tracking
+   - `nft_certificates` table - Minted NFT certificate records
+   - `reputation_logs` table - On-chain reputation events
 
 2. **Row Level Security (RLS)**:
    - User can only see their own data
-   - Public read for bounties/profiles
+   - Public read for commissions/profiles
    - Secure write operations
 
 3. **Database Functions**:
    - `create_user_profile()`
-   - `create_bounty()`
+   - `create_commission()`
    - `submit_bid()`
    - `update_reputation()`
 
 4. **API Routes** (Next.js):
    - `/api/auth/register`
    - `/api/auth/me`
-   - `/api/bounties` (CRUD)
+   - `/api/commissions` (CRUD)
    - `/api/bids` (CRUD)
    - `/api/milestones` (CRUD)
    - `/api/ipfs/upload`
@@ -250,13 +250,22 @@ Phase 1: Backend Infrastructure
 
 Set up the complete Supabase database schema according to the SRS requirements:
 
-1. Create all database tables (users, bounties, participations, milestones, payment_transactions, nft_certificates, reputation_logs)
+1. Create all database tables:
+   - users (user accounts and profiles)
+   - commissions (art commission requests)
+   - bids (artist proposals)
+   - milestones (commission stages)
+   - milestone_submissions (artist work submissions)
+   - payment_transactions (payment history)
+   - nft_certificates (minted NFT records)
+   - reputation_logs (reputation events)
+
 2. Set up Row Level Security policies
 3. Create database functions for common operations
 4. Build Next.js API routes for:
    - User management
-   - Bounty CRUD
-   - Bid submission
+   - Commission CRUD
+   - Bid submission and management
    - Milestone management
    - IPFS upload
 5. Generate TypeScript types from Supabase schema
@@ -750,7 +759,7 @@ Throughout the phases, we'll create:
 
 2. **API Routes** (Phases 1-4):
    - `src/app/api/auth/[...nextauth]/route.ts`
-   - `src/app/api/bounties/route.ts`
+   - `src/app/api/commissions/route.ts`
    - `src/app/api/bids/route.ts`
    - `src/app/api/milestones/route.ts`
    - `src/app/api/ipfs/upload/route.ts`

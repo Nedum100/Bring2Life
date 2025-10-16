@@ -10,10 +10,12 @@
     "compile": "hardhat compile",
     "test:contracts": "hardhat test",
     "deploy:testnet": "cross-env TS_NODE_PROJECT=tsconfig.hardhat.json hardhat run scripts/deploy.ts --network testnet",
-    "verify-config": "node scripts/verify-config.js"
+    "verify-config": "node scripts/verify-config.js",
+    "db:test": "node scripts/test-database.js"
   },
   "dependencies": {
     "@hashgraph/sdk": "^2.49.1",
+    "@supabase/supabase-js": "^2.75.0",
     "@web3auth/base": "^8.12.4",
     "@web3auth/ethereum-provider": "^8.12.4",
     "@web3auth/modal": "^8.12.4",
